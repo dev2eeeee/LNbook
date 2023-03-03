@@ -12,8 +12,7 @@ _마스터링 라이트닝 네트워크_에 오신 것을 환영합니다!
 
 우리는 여러분이 비트코인에 대한 기초 지식을 이미 갖고 있다고 가정합니다. 그러지 않다면 걱정하지 마세요. 우리는 <<bitcoin_fundamentals_review>>에서, 여러분이 라이트닝 네트워크를 이해하기 위해 반드시 알아야하는, 핵심 비트코인 용어들을 설명할 것입니다. 비트코인에 대해 더 자세히 배우고 싶다면, 안드레아스 M. 안토노폴로스의 _비트코인, 공개 블록체인 프로그래밍_ 2판(O'Reilly, 한글 번역본)을 읽으셔도 됩니다. 영문판은 https://github.com/bitcoinbook/bitcoinbook 에서 무료로 이용 가능합니다.
 
-While the bulk of this book is written for programmers, the first few chapters are written to be approachable by anyone regardless of technical experience. In this chapter, we'll start with some terminology, then move to look at trust and its application in these systems, and finally we'll discuss the history and future of the Lightning Network. Let's get started.
-이 책의 대부분은 프로그래머들을 위해 작성되었지만, 초기 몇몇 챕터들은 프로그래머가 아니어도 누구나 이해하실 수 있도록 작성되었습니다. 이번 챕터에서, 우리는 몇 가지 용어로 시작하여, 신뢰 개념과 이러한 시스템의 적용에 대해 알아본 뒤, 마지막으로 라이트닝 네트워크의 역사와 미래를 얘기해보겠습니다. 그럼 시작하겠습니다. (신뢰 개념, 이러한 시스템의 적용)은 이 챕터가 끝나고 다시 돌아와서 작성할 것.
+이 책의 대부분은 프로그래머들을 위해 작성되었지만, 초기 몇몇 챕터들은 프로그래머가 아니어도 누구나 이해하실 수 있도록 작성되었습니다. 이번 챕터에서, 우리는 몇 가지 용어로 시작하여, 신뢰 개념과 이러한 시스템의 적용에 대해 알아본 뒤, 마지막으로 라이트닝 네트워크의 역사와 미래를 얘기해보겠습니다. 그럼 시작하겠습니다.
 
 === 라이트닝 네트워크 기본 개념들
 
@@ -27,83 +26,82 @@ While the bulk of this book is written for programmers, the first few chapters a
 
 노드:: ((("node, defined")))네트워크에 참여하는 컴퓨터를 말합니다. 라이트닝 노드는 라이트닝 네트워크에 참여하는 컴퓨터입니다. 비트코인 노드는 비트코인 네트워크에 참여하는 컴퓨터입니다. 보통 라이트닝 네트워크 사용자는 라이트닝 노드와 비트코인 노드를 _동시에_ 실행시킬 것입니다.
 
-On-chain versus off-chain:: ((("on-chain payment","defined")))A payment is _on-chain_ if it is recorded as a transaction on the Bitcoin (or other underlying) blockchain. ((("off-chain payment")))Payments sent via payment channels between Lightning nodes, and which are not visible in the underlying blockchain, are called _off-chain_ payments. Usually in the Lightning Network, the only on-chain transactions are those used to open and close a Lightning payment channel. A third type of channel modifying transaction exists, called splicing, which can be used to add/remove the amount of funds committed in a channel.
-온체인 vs 오프체인:: ((("on-chain payment","defined")))A payment is _on-chain_ if it is recorded as a transaction on the Bitcoin (or other underlying) blockchain. ((("off-chain payment")))Payments sent via payment channels between Lightning nodes, and which are not visible in the underlying blockchain, are called _off-chain_ payments. Usually in the Lightning Network, the only on-chain transactions are those used to open and close a Lightning payment channel. A third type of channel modifying transaction exists, called splicing, which can be used to add/remove the amount of funds committed in a channel.
+온체인 vs 오프체인:: ((("on-chain payment","defined")))비트코인이나 다른 블록체인 상에서 트랜잭션으로 기록되면, _온체인_ 지불입니다. ((("off-chain payment")))블록체인 상에서는 보이지 않고, 라이트닝 노드들 간 지불 채널을 통한 전송은 _오프체인_ 지불입니다. 일반적으로 라이트닝 네트워크에서, 라이트닝 지불 채널을 열고 닫을 때가 유일한 온체인 트랜잭션입니다. 다른 온체인 트랜잭션 유형으로는, 스플라이싱(splicing)이라고 하는 채널 수정 트랜잭션이 있습니다. 스플라이싱은 채널 내에 맡긴 자금의 양을 수정할 때 사용됩니다.
 
-Payment:: ((("payment","defined")))When value is exchanged on the Lightning Network, we call this a "payment" as compared to a "transaction" on the Bitcoin blockchain.
+지불:: ((("payment","defined")))비트코인의 ”트랜잭션”처럼, 라이트닝 네트워크에서 가치가 교환되는 것을 “지불”이라고 부릅니다.
 
-Payment channel:: ((("payment channel", seealso="channel entries")))A _financial relationship_ between two nodes on the Lightning Network, typically implemented by multisignature Bitcoin transactions that share control over bitcoin between the two Lightning nodes.
+지불 채널:: ((("payment channel", seealso="channel entries")))지불 채널은 라이트닝 네트워크에서 두 노드 간의 _재정적 관계_를 뜻합니다. 보통 두 라이트닝 노드들 간의 비트코인 제어권을 공유하는, 비트코인 다중서명 트랜잭션에 의해 구현됩니다.
 
-Routing versus sending:: ((("routing","sending versus")))((("sending, routing versus")))Unlike Bitcoin where transactions are "sent" by broadcasting them to everyone, Lightning is a routed network where payments are "routed" across one or more payment channels following a _path_ from sender to recipient.
+전달 versus 전송:: ((("routing","sending versus")))((("sending, routing versus")))비트코인에서는 모든 사람에게 브로드캐스트하여 트랜잭션을 “전송”합니다. 그러나 라이트닝 네트워크는 송신자와 수신자 간 _경로_를 따르는 하나 이상의 지불 채널을 통해, 지불이 “전달”되는 전달 네트워크(routed network)를 이용합니다. 
 
-Transaction:: ((("transaction, defined")))A data structure that records the transfer of control over some funds (e.g., some bitcoin). The Lightning Network relies on Bitcoin transactions (or those of another blockchain) to track control of funds.
+트랜잭션:: ((("transaction, defined")))비트코인과 같은 자금의 소유권 이동을 기록하는 데이터 구조입니다. 라이트닝 네트워크는 자금의 소유권을 추적하기 위해 비트코인 트랜잭션(혹은 다른 블록체인의 트랜잭션)에 의존합니다.
 
-More detailed definitions of these and many other terms can be found in the <<glossary>>. Throughout this book, we will explain what these concepts mean and how these technologies actually work.
+더 상세하고 다양한 정의들은 <<gloassary>>에서 찾을 수 있습니다. 이 책 전반에서, 우리는 이 용어들이 무엇을 의미하는지, 어떻게 이 기술이 실제로 동작하는지 설명할 것입니다.
 
 [TIP]
 ====
-Throughout this book, you will see "Bitcoin" with the first letter capitalized, which refers to the _Bitcoin system_ and is a proper noun. You will also see "bitcoin," with a lowercase _b_, which refers to the currency unit. Each bitcoin is further subdivided into 100 million units each called a "satoshi" (singular) or "satoshis" (plural).(((range="endofrange", startref="ix_01_introduction-asciidoc1")))
+책에서 “비트코인”은 비트코인 시스템 자체를 의미하는 고유명사로 사용될 수도 있고, 화폐 단위를 의미할 수도 있습니다. 화폐 단위로서 각 비트코인은 1억 단위로 세분화되어 사토시로 불립니다(1 비트코인 = 1억 사토시). (((range="endofrange", startref="ix_01_introduction-asciidoc1")))
 ====
 
-Now that you're familiar with these basic terms, let's move to a concept you are already comfortable with: trust.
+위 기초 용어들에 익숙해졌다면, 여러분들이 이미 알고 계시는 개념인, 신뢰(trust) 개념에 대해 설명하겠습니다.
+
+=== 탈중앙화 네트워크에서 신뢰(Trust)
+
+((("Lightning Network (generally)","trust in decentralized networks")))((("trustless systems","trust in decentralized networks")))여러분들은 종종 사람들이 비트코인과 라이트닝 네트워크를 “신뢰할 수 없다”고 말하는 것을 들었을 것입니다. 이것을 처음 접하면 혼란스러우실 수 있습니다. 결국, 신뢰는 좋은 것 아닐까요? 심지어 은행에선 이름에 신뢰를 붙이기도 하니까요. “신뢰할 수 없는” 시스템, 신뢰 없는 시스템은 나쁜 것 아닐까요? 
+
+“신뢰할 수 없음(trustless)”의 의미는, 시스템에 참여하는 사람들끼리 서로 신뢰하지 않아도, 시스템이 동작한다는 것을 의미합니다. 비트코인 같은 탈중앙화 시스템에서, 여러분은 항상 여러분이 신뢰하는 사람들끼리만 거래할 수도 있습니다. 그러나 시스템은 여러분들이 신뢰하지 않는 사람과 거래해도, 사기당하지 않는다는 점을 보장해줍니다. 시스템에서 신뢰는 있으면 좋을 뿐이지, 반드시 있어야 하는 것은 아닙니다. 
+
+여러분들이 돈을 맡기고 신뢰하는, 은행과 같은 전통적인 시스템과 비교해보세요. 만약 은행이 여러분들의 신뢰를 깨는 행위를 저질렀다면, 규제 기관이나 법원으로부터 돈 일부를 되찾을 수도 있습니다. 그러나 엄청난 시간, 돈과 노력이 들겠죠.
+
+신뢰할 수 없음(trustless)은 신뢰가 없다는 것을 의미하지 않습니다. 시스템이 부정행위를 방지하기 때문에, 모든 거래에서 신뢰가 전제조건이 될 필요가 없다는 점, 여러분들이 신뢰하지 않는 사람들과도 거래가 가능하다는 점을 의미합니다. 
+
+어떻게 라이트닝 네트워크가 동작하는지 알아보기 전에, _공평성 프로토콜(fair protocol)_이라고 부르는 비트코인과 라이트닝 네트워크의 기초 개념을 이해하는 것이 중요합니다. 공평성 프로토콜은, 신뢰하지 않는 서로가 중앙 기관 없이 공평한 결과를 낼 수 있는 방법을 말합니다. 비트코인 같은 탈중앙화 시스템의 핵심이라고 볼 수 있습니다.
 
 
-=== Trust in Decentralized Networks
+=== 중앙 기관 없는 공평성
 
-((("Lightning Network (generally)","trust in decentralized networks")))((("trustless systems","trust in decentralized networks")))You will often hear people calling Bitcoin and the Lightning Network "trustless." At first glance this is confusing. After all, isn't trust a good thing? Banks even use it in their names! Isn't a "trustless" system, a system devoid of trust, a bad thing?
+((("fairness, ensuring")))((("Lightning Network (generally)","fairness without central authority")))사람들이 이익을 위해 경쟁할 때, 협력과 거래를 위한 신뢰를 어떻게 쌓을 수 있을까요? 이 질문에 대한 답은, 경제학, 사회학, 행동심리학, 수학과 같은 과학적이고 인문학적 학문의 핵심입니다. 몇몇 학문들은 명성, 공평함, 도덕, 심지어 종교와 같은 "가벼운" 개념들이 답이라고 말합니다. 다른 학문은 참가자들이 자신의 이익을 목적으로 이성적으로 행동한다는 가정 하에, 구체적인 답을 주기도 합니다. 
 
-The use of the word "trustless" is intended to convey the ability to operate without _needing_ trust in the other participants in the system. In a decentralized system like Bitcoin, you can always choose to transact with someone you trust. However, the system ensures you can't be cheated even if you can't trust the other party in a transaction. Trust is a nice-to-have instead of a must-have property of the system.
+넓은 의미에서, 이익을 위해 경쟁하는 개인들 간에서 공정한 결과를 보장하는 방법이 몇 가지 있습니다.
 
-Contrast that to traditional systems like banking where you must place your trust in a third party, since it controls your money. If the bank violates your trust, you may be able to find some recourse from a regulator or court, but at an enormous cost of time, money, and effort.
+신뢰하는 사람들과 거래하기:: 이전 거래, 명성, 가족 관계 등을 바탕으로, 이미 신뢰하는 사람들끼리만 거래합니다. 가족처럼 소규모 단위에서 잘 동작하기 때문에, 협력 행동에서 가장 흔합니다. 그러나 규모가 커지지 않고, (그룹 내) 집단중심주의가 강한 사람의 편견으로부터 고통받습니다.
 
-Trustless does not mean devoid of trust. It means that trust is not a necessary prerequisite to all transactions and that you can transact even with people you don't trust because the system prevents cheating.
+규칙 정하기:: 기관에서 상호작용을 위한 규칙을 정합니다. 규모적으로는 좀 더 낫지만, 기관이 영향을 미칠 수 있는 범위가 한정적이고, 관습과 전통의 차이로 인해 세계적으로 커질 순 없습니다. 기관이 커질수록 권력이 강해지고, 부패로 이어질 수 있다는 부작용도 있습니다. 
 
-Before we get into how the Lightning Network works, it's important to understand one basic concept that underlies Bitcoin, the Lightning Network, and many other such systems: something we call a _fairness protocol_. A fairness protocol is a way to achieve fair outcomes between participants, who do not need to trust each other, without the need for a central authority, and it is the backbone of decentralized systems like Bitcoin.
+믿을 만한 제3자를 이용하기:: 공평함을 위해 모든 상호작용에 중개자를 두는 것입니다. 중개자의 감시를 위해 “규칙까지 정하면”, 규모를 더 확장시킬 수 있지만, 권력의 문제를 겪을 수도 있습니다. 중개자의 힘이 매우 강해지고, 부패로 이어질 수 있습니다. 권력의 집중은 시스템의 위험과 실패로 이어집니다.
+
+게임 이론을 통한 공평성 프로토콜:: 마지막 카테고리는 인터넷과 암호학의 융합으로 비롯되었으며, 이 섹션의 주제입니다. 이것이 어떻게 동작하고, 장단점은 무엇인지 알아봅시다.
+
+==== 중개자 없는 신뢰할 수 있는 프로토콜
+
+((("fairness protocol","trusted protocols without intermediaries")))비트코인과 라이트닝 네트워크 같은 암호화 시스템에서, 여러분들은 신뢰하지 않는 사람들(혹은 컴퓨터)과 거래할 수 있습니다. 이것을 “신뢰할 수 없는(trustless)” 작업이라고 부릅니다. 실제로 신뢰하지 않는 건 아니겠지만요. 여러분들은 실행시키는 소프트웨어를 믿어야 하고, 소프트웨어가 구현하는 프로토콜이 공평한 결과를 만들 것이라고 믿어야 합니다. 
+
+암호화 시스템과는 달리, 전통적인 금융 시스템은 공정한 결과를 보장하기 위해 은행과 같은 _신뢰받는 제3자_가 있어야 합니다. 이때 제3자에게 너무 많은 권력을 줄 수 밖에 없고, _장애 하나(단일 장애점, SPOF)_에도 취약하다는 점이 심각한 문제입니다. 만약 제3자가 신뢰를 위반하거나, 사기를 치려고 한다면, 신뢰는 깨지게 되겠죠.
+
+여러분들이 암호화 시스템을 공부할 때마다, 다음과 같은 특정 패턴을 발견하실 겁니다. 시스템은 제3자에게 의존하는 것 대신에, 유인책과 억제책을 사용하여 불공정한 결과를 방지하려고 시도하는 것 말이죠. 암호화 시스템에서 여러분은 유인책과 억제책을 올바르게 적용할 규칙인 ((("protocol, defined")))_프로토콜_을 신뢰합니다. 프로토콜이 잘 설계되었다는 가정 아래입니다. 이 접근법의 장접은 두 가지 입니다. 여러분이 제 3자를 신뢰하지 않아도 괜찮고, 공정한 결과를 강요할 필요도 없습니다. 참가자들이 합의된 프로토콜을 따르고, 시스템 내에 머무른다면, 프로토콜의 인센티브 정책으로 강제성 없이 공평한 결과를 달성할 것입니다. 
 
 
-=== Fairness Without Central Authority
+((("game theory")))공평한 결과를 내기 위한 유인책과 억제책의 사용은 _게임 이론_이라고 불리는 수학의 한 분야입니다. 게임 이론에서는 “합리적인 결정을 내리는 사람들 간 전략적 상호 작용 모델”을 연구합니다."footnote:[The Wikipedia https://en.wikipedia.org/wiki/Game_theory[entry on game theory] provides more information.] 비트코인과 라이트닝 네트워크처럼 참가자들 간 재정적 상호작용을 다루는 암호화 시스템에서는, 참가자들 간 사기를 방지하고, 신뢰하지 않는 사람들끼리도 공평한 결과를 내기 위해, 게임 이론에 많이 의존합니다.
+ 
+게임 이론이 무엇이고, 암호화 시스템에서 게임 이론이 어떻게 사용되는지가 처음에는 혼란스럽고 낯선 개념일지도 모릅니다. 그러나 여러분들은 인지하지 못하셨겠지만, 일상생활에서 이미 게임 이론의 상황을 겪고 계실 수도 있습니다. 다음 섹션에서는 어린 시절을 예시로 들어, 게임 이론의 기초 원리를 이해해 볼 것입니다. 기초 원리를 이해하시면 여러분들은 게임 이론을, 블록체인을 다루는 어디에서나 보실 수 있고, 빠르고 직관적으로 이해하실 수 있으실 겁니다. 
 
-((("fairness, ensuring")))((("Lightning Network (generally)","fairness without central authority")))When people have competing interests, how can they establish enough trust to engage in some cooperative or transactional behavior? The answer to this question lies at the core of several scientific and humanistic disciplines, such as economics, sociology, behavioral psychology, and mathematics. Some of those disciplines give us "soft" answers that depend on concepts such as reputation, fairness, morality, and even religion. Other disciplines give us concrete answers that depend only on the assumption that the participants in these interactions will act rationally, with their self-interest as the main objective.
+((("fairness protocol", id="ix_01_introduction-asciidoc2", range="startofrange")))이 책에서 우리는 이 원리를 ((("fairness protocol","defined")))_공평성 프로토콜_이라고 부릅니다. 유인책과 억제책의 시스템을 사용하여, 서로 신뢰하지 않는 참가자들끼리 공평한 결과를 내도록 보장할 수 있는 프로세스를 의미합니다. 공평성 프로토콜은, 참가자들이 유인책과 억제책을 피할 수 없도록 보장하기 위해 필수입니다.
 
-In broad terms, there are a handful of ways to ensure fair outcomes in interactions between individuals who may have competing interests:
+==== 구체적인 상황 속에서 공평성 프로토콜
 
-Require trust:: You only interact with people whom you already trust, due to prior interactions, reputation, or familial relationships. This works well enough at small scale, especially within families and small groups, that it is the most common basis for cooperative behavior. Unfortunately, it doesn't scale and it suffers from tribalist (in-group) bias.
+((("fairness protocol","real-world example")))여러분들이 이미 친숙한 상황을 예로 들어 공평성 프로토콜을 살펴보도록 하죠.
 
-Rule of law:: Establish rules for interactions that are enforced by an institution. This scales better, but it cannot scale globally due to differences in customs and traditions, as well as the inability to scale the institutions of enforcement. One nasty side effect of this solution is that the institutions become more and more powerful as they get bigger and that may lead to corruption.
+부모님과 두 아이들이 가족 식사를 하고 있는 상황을 상상해봅시다. 아이들은 까다롭게 먹어요. 감자튀김만 먹으려고 합니다. 부모님들은 감자튀김 한 접시를 준비했습니다. (여러분들의 지역에 따라 감자튀김일 수도, 감자칩일 수도 있습니다.) 아이들은 감자튀김 한 접시를 나눠 먹어야 해요. 부모님은 각 아이들에게 감자튀김을 공정하게 나눠줘야 하는데, 항상 불평을 듣기 일쑤죠(거의 매일요). 공정하지 않는 상황이 매번 발생하면 싸울 수도 있습니다. 부모님들은 어떻게 해야 할까요?
 
-Trusted third parties:: Put an intermediary in every interaction to enforce fairness. Combined with the "rule of law" to provide oversight of intermediaries, this scales better, but suffers from the same imbalance of power: the intermediaries get very powerful and may attract corruption. Concentration of power leads to systemic risk and systemic failure ("too big to fail").
+아이들은 이익을 위해 다투면서, 서로 신뢰하지 않습니다. 이때 전략적으로 공평함을 달성할 수 있는 방법이 몇 가지 있습니다. 부모님들께서 흔하게 사용하시는 방법은, 감자튀김을 두 접시에 나눠 담는 방법입니다. 부모님이 신뢰 받는 제3자로서 권한을 사용하는 것이죠. 마치 거래하는 두 사람 간 사기를 방지하기 위해, 은행, 회계사, 변호사처럼 신뢰 받는 제3자가 대신하는 전통적인 금융과 유사합니다. 
 
-Game theoretical fairness protocols:: This last category emerges from the combination of the internet and cryptography and is the subject of this section. Let's see how it works and what its advantages and disadvantages are.
+이 시나리오의 문제점은 신뢰 받는 제3자에게 너무 많은 권력과 책임을 부여하는 것입니다. 이번 예시에서, 부모님은 전적으로 감자튀김을 동등하게 나눠야 하는 책임이 있습니다. 아이들은 단지 기다리고, 지켜보고, 불평할 뿐이죠. 아이들은 감자튀김을 공평하게 나누지 않고, 편애한다고 비난합니다. 감자튀김을 사이에 두고 상대방 것이 더 크다며, 소리치면서 부모님을 싸움에 끌어들입니다. 끔찍하지 않나요? 부모님들은 더 크게 소리질러야 할까요? 감자튀김을 다 치우면서? 다시는 감자튀김을 안주고, 아이들은 굶어야 한다고 말해야 할까요?
 
-==== Trusted Protocols Without Intermediaries
+더 나은 해결책이 있습니다. 아이들에게 “나누고 선택하는” 게임을 가르쳐주는 것이죠. 매 점심 식사에서, 한 아이가 감자 튀김을 두 접시에 나누고, _나머지_ 아이가 무엇을 먹을지 선택하는 것입니다. 아이들은 바로 이 게임의 재미를 알아차립니다. 만약 한 아이가 실수하거나, 사기를 치려고 한다면, 다른 아이는 더 큰 접시를 선택해서 상대방을 “벌”할 수 있죠. 공평하게 나누는 것은, 두 아이들 모두에게 가장 큰 이익을 주지만, 특히 두 접시로 나누는 아이에게는 더 이익이 됩니다. 이 시나리오에서는 부정행위를 하는 사람만이 손해입니다. 부모님은 심지어 그들의 권한을 사용할 필요도 없고, 공평함을 강제할 필요도 없습니다. 모든 부모님들은 단지 _규칙을 강제하기만 하면_ 됩니다. 아이들이 “나누고”, “선택하는”, 역할을 피하지 않는 한, 프로토콜 자체로 어떤 간섭도 필요 없이, 공평한 결과를 보장할 수 있습니다. 부모님들은 편애할 수도 없고, 결과를 왜곡할 수도 없습니다.  
 
-((("fairness protocol","trusted protocols without intermediaries")))Cryptographic systems like Bitcoin and the Lightning Network are systems that allow you to transact with people (and computers) that you don't trust. This is often referred to as "trustless" operation, even though it is not actually trustless. You have to trust in the software that you run, and you have to trust that the protocol implemented by that software will result in fair outcomes.
-
-The big distinction between a cryptographic system like this and a traditional financial system is that in traditional finance you have a _trusted third party_, for example a bank, to ensure that outcomes are fair. A significant problem with such systems is that they give too much power to the third party, and they are also vulnerable to a _single point of failure_. If the trusted third party itself violates trust or attempts to cheat, the basis of trust breaks.
-
-As you study cryptographic systems, you will notice a certain pattern: instead of relying on a trusted third party, these systems attempt to prevent unfair outcomes by using a system of incentives and disincentives. In cryptographic systems you place trust in the ((("protocol, defined")))_protocol_, which is effectively a system with a set of rules that, if properly designed, will correctly apply the desired incentives and disincentives. The advantage of this approach is twofold: not only do you avoid trusting a third party, you also reduce the need to enforce fair outcomes. So long as the participants follow the agreed protocol and stay within the system, the incentive mechanism in that protocol achieves fair outcomes without enforcement.
-
-((("game theory")))The use of incentives and disincentives to achieve fair outcomes is one aspect of a branch of mathematics called _game theory_, which studies "models of strategic interaction among rational decision makers."footnote:[The Wikipedia https://en.wikipedia.org/wiki/Game_theory[entry on game theory] provides more information.] Cryptographic systems that control financial interactions between participants, such as Bitcoin and the Lightning Network, rely heavily on game theory to prevent participants from cheating and allow participants who don't trust each other to achieve fair outcomes.
-
-While game theory and its use in cryptographic systems may appear confounding and unfamiliar at first, chances are you're already familiar with these systems in your everyday life; you just don't recognize them yet. In the following section we'll use a simple example from childhood to help us identify the basic pattern. Once you understand the basic pattern, you will see it everywhere in the blockchain space and you will come to recognize it quickly and intuitively.
-
-((("fairness protocol", id="ix_01_introduction-asciidoc2", range="startofrange")))In this book, we call this pattern a ((("fairness protocol","defined")))_fairness protocol_, defined as a process that uses a system of incentives and/or disincentives to ensure fair outcomes for participants who don't trust each other. Enforcement of a fairness protocol is only necessary to ensure that the participants can't escape the incentives or disincentives.
-
-==== A Fairness Protocol in Action
-
-((("fairness protocol","real-world example")))Let's look at an example of a fairness protocol that you may already be familiar with.
-
-Imagine a family lunch, with a parent and two children. The children are fussy eaters and the only thing they will agree to eat is fried potatoes. The parent has prepared a bowl of fried potatoes ("french fries" or "chips" depending on which English dialect you use). The two siblings must share the plate of chips. The parent must ensure a fair distribution of chips to each child; otherwise, the parent will have to hear constant complaining (maybe all day), and there's always a possibility of an unfair situation escalating to violence. What is a parent to do?
-
-There are a few different ways that fairness can be achieved in this strategic interaction between two siblings that do not trust each other and have competing interests. The naive but commonly used method is for the parent to use their authority as a trusted third party: they split the bowl of chips into two servings. This is similar to traditional finance, where a bank, accountant, or lawyer acts as a trusted third party to prevent any cheating between two parties who want to transact.
-
-The problem with this scenario is that it vests a lot of power and responsibility in the hands of the trusted third party. In this example, the parent is fully responsible for the equal allocation of chips, and the parties merely wait, watch, and complain.  The children accuse the parent of playing favorites and not allocating the chips fairly. The siblings fight over the chips, yelling "that chip is bigger!" and dragging the parent into their fight. It sounds awful, doesn't it? Should the parent yell louder? Take all of the chips away? Threaten to never make chips again and let those ungrateful children go hungry?
-
-A much better solution exists: the siblings are taught to play a game called "split and choose." At each lunch one sibling splits the bowl of chips into two servings and the _other_ sibling gets to choose which serving they want. Almost immediately, the siblings figure out the dynamic of this game. If the one splitting makes a mistake or tries to cheat, the other sibling can "punish" them by choosing the bigger bowl. It is in the best interest of both siblings, but especially the one splitting the bowl, to play fair. Only the cheater loses in this scenario. The parent doesn't even have to use their authority or enforce fairness. All the parent has to do is _enforce the protocol_; as long as the siblings cannot escape their assigned roles of "splitter" and "chooser," the protocol itself ensures a fair outcome without the need for any intervention. The parent can't play favorites or distort the outcome.
-
-[WARNING]
+[경고]
 ====
-While the infamous chip battles of the 1980s neatly illustrate the point, any similarity between the preceding scenario and any of the authors' actual childhood experiences with their cousins is entirely coincidental...or is it?
+1980년대 악명 높은 감자튀김 배틀을 잘 보여주고 있지만, 실제 저자들과 사촌들 간의 어린 시절 경험이 위 시나리오와 비슷한 것은 완전 우연입니다…그렇겠죠?
 ====
 
 ==== Security Primitives as Building Blocks
