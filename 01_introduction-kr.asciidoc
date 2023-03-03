@@ -104,21 +104,21 @@ _마스터링 라이트닝 네트워크_에 오신 것을 환영합니다!
 1980년대 악명 높은 감자튀김 배틀을 잘 보여주고 있지만, 실제 저자들과 사촌들 간의 어린 시절 경험이 위 시나리오와 비슷한 것은 완전 우연입니다…그렇겠죠?
 ====
 
-==== Security Primitives as Building Blocks
+==== 블록을 구성할 때 보안 요소들
 
-((("fairness protocol","security primitives as building blocks")))((("security primitives")))In order for a fairness protocol like this to work, there need to be certain guarantees, or _security primitives_, that can be combined to ensure enforcement. The first security primitive is _strict time ordering/sequencing_: the "splitting" action must happen before the "choosing" action. It's not immediately obvious, but unless you can guarantee that action A happens before action B, then the protocol falls apart. The second security primitive is _commitment with nonrepudiation_. Each sibling must commit to their choice of role: either splitter or chooser. Also, once the splitting has been completed, the splitter is committed to the split they created—they cannot repudiate that choice and go try again.
+((("fairness protocol","security primitives as building blocks")))((("security primitives")))위와 같은 공평성 프로토콜이 작동하기 위해선, _보안 요소(security primitives)_라는 것이 필수적으로, 강제적으로 보장되어야 합니다. 첫번째 보안 요소는 _엄격한 시간 순서_입니다. “나누는” 행위는 반드시 “선택하는” 행위보다 먼저 일어나야 합니다. 바로 이해하기 어려우실 수 있겠습니다만, A 행위가 B 행위보다 먼저 일어나는 것을 보장할 수 없다면, 프로토콜은 붕괴되고 맙니다. 두번째 보안 요소는 _부인 방지를 약속하는 것_입니다. 각 아이들은 나눌지 선택할지, 각자의 역할을 확실히 선택해야 합니다. 또한 분할이 끝나면, 나누는 사람은 자신이 나눈 것을 확정해야 합니다. 선택한다거나, 다시 나누는 행위는 불가능하죠.
 
-Cryptographic systems offer a number of security primitives that can be combined in different ways to construct a fairness protocol. In addition to sequencing and commitment, we can also use many other tools:
+암호화 시스템은 공평성 프로토콜을 구성하는 다양한 방법들이 결합되어, 수많은 보안 요소들을 제공할 수 있습니다. 연속성과 확정성 외에도, 우리는 다른 여러 도구들을 이용할 수 있습니다.
 
-- Hash functions to fingerprint data, as a form of commitment, or as the basis for a digital signature
-- Digital signatures for authentication, nonrepudiation, and proof of ownership of a secret
-- Encryption/decryption to restrict access to information to authorized participants only
+- 데이터들의 지문으로서, 디지털 서명을 만드는 데 기초가 되는 해쉬 함수
+- 인증, 부인방지, 비밀리에 소유권을 증명하는 데 사용되는 디지털 서명
+- 권한이 있는 참가자들에게만 정보에 접근할 수 있도록 제한하는 암호화/복호화
 
-This is only a small list of a whole "menagerie" of security and cryptographic primitives that are in use. More basic primitives and combinations are invented all the time.
+이러한 도구들은 보안과 암호학에서 사용되는 요소들 중 일부에 불과합니다. 더 기초적인 요소들과 그것들의 결합들은 계속 만들어지고 있습니다.
 
-In our real-life example, we saw one form of fairness protocol called "split and choose." This is just one of a myriad different fairness protocols that can be built by combining the building blocks of security primitives in different ways. But the basic pattern is always the same: two or more participants interact without trusting each other by engaging in a series of steps that are part of an agreed protocol. The protocol's steps arrange incentives and disincentives to ensure that if the participants are rational, cheating is counterproductive and fairness is the automatic outcome. Enforcement is not necessary to get fair outcomes—it is only necessary to keep the participants from breaking out of the agreed protocol.
+일상생활에서 볼 법한 예시를 들어, 우리는 공평성 프로토콜의 하나인 “나누고 선택하는” 게임을 알아보았습니다. 이것은 단지, 보안 요소를 사용하여 블록을 구성하는 여러 방법들 중 하나입니다. 그러나 기초 원리는 항상 동일합니다. 둘 이상의 참가자들은 서로를 신뢰하지 않고, 서로 동의하는 프로토콜의 절차를 밟아가며 상호작용합니다. 프로토콜의 각 단계는, 참가자들이 이성적이라는 가정 하에, 사기를 치면 불이익을 받고, 공정하게 행동하면 정해진 결과를 받는 것을 보장하도록, 유인책과 억제책으로 구성되어 있습니다. 공평한 결과를 얻는 데 강요는 필요하지 않습니다. 단지 참가자들이 공통의 규칙을 깨지 않도록 하는 것만이 필요할 뿐이죠.
 
-Now that you understand this basic pattern, you will start seeing it everywhere in Bitcoin, the Lightning Network, and many other systems. Let's look at some specific examples next.
+이제 여러분들은 기초 원리를 이해하셨으니, 이 원리를 비트코인, 라이트닝 네트워크, 또 다른 시스템들 어디에서나 보실 수 있을 겁니다. 특정한 예를 들어 살펴봅시다.
 
 ==== Example of the Fairness Protocol
 
