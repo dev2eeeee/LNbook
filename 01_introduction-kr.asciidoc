@@ -2,7 +2,7 @@
 [[intro_what_is_the_lightning_network]]
 == Introduction
 
-_마스터링 라이트닝 네트워크_에 오신 것을 환영합니다!
+_마스터링 라이트닝 네트워크_ 에 오신 것을 환영합니다!
 
 ((("Lightning Network (generally)", seealso="innovations in Lightning", id="ix_01_introduction-asciidoc0", range="startofrange")))라이트닝 네트워크(줄여서 LN)는, 사람들이 온라인에서 가치를 교환하는 방식을 바꾸고 있고, 비트코인 역사상 가장 흥미로운 발전 중 하나입니다. 
 오늘날, 2021년에, 라이트닝 네트워크는 여전히 초기 단계입니다. 라이트닝 네트워크는 똑똑하고, 독창적인 방법으로 비트코인을 사용하는 프로토콜입니다. 비트코인 위의 레이어 2 기술이죠.
@@ -30,9 +30,9 @@ _마스터링 라이트닝 네트워크_에 오신 것을 환영합니다!
 
 지불:: ((("payment","defined")))비트코인의 ”트랜잭션”처럼, 라이트닝 네트워크에서 가치가 교환되는 것을 “지불”이라고 부릅니다.
 
-지불 채널:: ((("payment channel", seealso="channel entries")))지불 채널은 라이트닝 네트워크에서 두 노드 간의 _재정적 관계_를 뜻합니다. 보통 두 라이트닝 노드들 간의 비트코인 제어권을 공유하는, 비트코인 다중서명 트랜잭션에 의해 구현됩니다.
+지불 채널:: ((("payment channel", seealso="channel entries")))지불 채널은 라이트닝 네트워크에서 두 노드 간의 _재정적 관계_ 를 뜻합니다. 보통 두 라이트닝 노드들 간의 비트코인 제어권을 공유하는, 비트코인 다중서명 트랜잭션에 의해 구현됩니다.
 
-전달 versus 전송:: ((("routing","sending versus")))((("sending, routing versus")))비트코인에서는 모든 사람에게 브로드캐스트하여 트랜잭션을 “전송”합니다. 그러나 라이트닝 네트워크는 송신자와 수신자 간 _경로_를 따르는 하나 이상의 지불 채널을 통해, 지불이 “전달”되는 전달 네트워크(routed network)를 이용합니다. 
+전달 versus 전송:: ((("routing","sending versus")))((("sending, routing versus")))비트코인에서는 모든 사람에게 브로드캐스트하여 트랜잭션을 “전송”합니다. 그러나 라이트닝 네트워크는 송신자와 수신자 간 _경로_ 를 따르는 하나 이상의 지불 채널을 통해, 지불이 “전달”되는 전달 네트워크(routed network)를 이용합니다. 
 
 트랜잭션:: ((("transaction, defined")))비트코인과 같은 자금의 소유권 이동을 기록하는 데이터 구조입니다. 라이트닝 네트워크는 자금의 소유권을 추적하기 위해 비트코인 트랜잭션(혹은 다른 블록체인의 트랜잭션)에 의존합니다.
 
@@ -55,7 +55,7 @@ _마스터링 라이트닝 네트워크_에 오신 것을 환영합니다!
 
 신뢰할 수 없음(trustless)은 신뢰가 없다는 것을 의미하지 않습니다. 시스템이 부정행위를 방지하기 때문에, 모든 거래에서 신뢰가 전제조건이 될 필요가 없다는 점, 여러분들이 신뢰하지 않는 사람들과도 거래가 가능하다는 점을 의미합니다. 
 
-어떻게 라이트닝 네트워크가 동작하는지 알아보기 전에, _공평성 프로토콜(fair protocol)_이라고 부르는 비트코인과 라이트닝 네트워크의 기초 개념을 이해하는 것이 중요합니다. 공평성 프로토콜은, 신뢰하지 않는 서로가 중앙 기관 없이 공평한 결과를 낼 수 있는 방법을 말합니다. 비트코인 같은 탈중앙화 시스템의 핵심이라고 볼 수 있습니다.
+어떻게 라이트닝 네트워크가 동작하는지 알아보기 전에, _공평성 프로토콜(fair protocol)_ 이라고 부르는 비트코인과 라이트닝 네트워크의 기초 개념을 이해하는 것이 중요합니다. 공평성 프로토콜은, 신뢰하지 않는 서로가 중앙 기관 없이 공평한 결과를 낼 수 있는 방법을 말합니다. 비트코인 같은 탈중앙화 시스템의 핵심이라고 볼 수 있습니다.
 
 
 === 중앙 기관 없는 공평성
@@ -76,16 +76,16 @@ _마스터링 라이트닝 네트워크_에 오신 것을 환영합니다!
 
 ((("fairness protocol","trusted protocols without intermediaries")))비트코인과 라이트닝 네트워크 같은 암호화 시스템에서, 여러분들은 신뢰하지 않는 사람들(혹은 컴퓨터)과 거래할 수 있습니다. 이것을 “신뢰할 수 없는(trustless)” 작업이라고 부릅니다. 실제로 신뢰하지 않는 건 아니겠지만요. 여러분들은 실행시키는 소프트웨어를 믿어야 하고, 소프트웨어가 구현하는 프로토콜이 공평한 결과를 만들 것이라고 믿어야 합니다. 
 
-암호화 시스템과는 달리, 전통적인 금융 시스템은 공정한 결과를 보장하기 위해 은행과 같은 _신뢰받는 제3자_가 있어야 합니다. 이때 제3자에게 너무 많은 권력을 줄 수 밖에 없고, _장애 하나(단일 장애점, SPOF)_에도 취약하다는 점이 심각한 문제입니다. 만약 제3자가 신뢰를 위반하거나, 사기를 치려고 한다면, 신뢰는 깨지게 되겠죠.
+암호화 시스템과는 달리, 전통적인 금융 시스템은 공정한 결과를 보장하기 위해 은행과 같은 _신뢰받는 제3자_ 가 있어야 합니다. 이때 제3자에게 너무 많은 권력을 줄 수 밖에 없고, _장애 하나(단일 장애점, SPOF)_ 에도 취약하다는 점이 심각한 문제입니다. 만약 제3자가 신뢰를 위반하거나, 사기를 치려고 한다면, 신뢰는 깨지게 되겠죠.
 
-여러분들이 암호화 시스템을 공부할 때마다, 다음과 같은 특정 패턴을 발견하실 겁니다. 시스템은 제3자에게 의존하는 것 대신에, 유인책과 억제책을 사용하여 불공정한 결과를 방지하려고 시도하는 것 말이죠. 암호화 시스템에서 여러분은 유인책과 억제책을 올바르게 적용할 규칙인 ((("protocol, defined")))_프로토콜_을 신뢰합니다. 프로토콜이 잘 설계되었다는 가정 아래입니다. 이 접근법의 장접은 두 가지 입니다. 여러분이 제 3자를 신뢰하지 않아도 괜찮고, 공정한 결과를 강요할 필요도 없습니다. 참가자들이 합의된 프로토콜을 따르고, 시스템 내에 머무른다면, 프로토콜의 인센티브 정책으로 강제성 없이 공평한 결과를 달성할 것입니다. 
+여러분들이 암호화 시스템을 공부할 때마다, 다음과 같은 특정 패턴을 발견하실 겁니다. 시스템은 제3자에게 의존하는 것 대신에, 유인책과 억제책을 사용하여 불공정한 결과를 방지하려고 시도하는 것 말이죠. 암호화 시스템에서 여러분은 유인책과 억제책을 올바르게 적용할 규칙인 ((("protocol, defined")))_프로토콜_ 을 신뢰합니다. 프로토콜이 잘 설계되었다는 가정 아래입니다. 이 접근법의 장접은 두 가지 입니다. 여러분이 제 3자를 신뢰하지 않아도 괜찮고, 공정한 결과를 강요할 필요도 없습니다. 참가자들이 합의된 프로토콜을 따르고, 시스템 내에 머무른다면, 프로토콜의 인센티브 정책으로 강제성 없이 공평한 결과를 달성할 것입니다. 
 
 
-((("game theory")))공평한 결과를 내기 위한 유인책과 억제책의 사용은 _게임 이론_이라고 불리는 수학의 한 분야입니다. 게임 이론에서는 “합리적인 결정을 내리는 사람들 간 전략적 상호 작용 모델”을 연구합니다."footnote:[The Wikipedia https://en.wikipedia.org/wiki/Game_theory[entry on game theory] provides more information.] 비트코인과 라이트닝 네트워크처럼 참가자들 간 재정적 상호작용을 다루는 암호화 시스템에서는, 참가자들 간 사기를 방지하고, 신뢰하지 않는 사람들끼리도 공평한 결과를 내기 위해, 게임 이론에 많이 의존합니다.
+((("game theory")))공평한 결과를 내기 위한 유인책과 억제책의 사용은 _게임 이론_ 이라고 불리는 수학의 한 분야입니다. 게임 이론에서는 “합리적인 결정을 내리는 사람들 간 전략적 상호 작용 모델”을 연구합니다."footnote:[위키피디아 https://en.wikipedia.org/wiki/Game_theory[entry on game theory]에 더 자세한 설명이 있습니다.] 비트코인과 라이트닝 네트워크처럼 참가자들 간 재정적 상호작용을 다루는 암호화 시스템에서는, 참가자들 간 사기를 방지하고, 신뢰하지 않는 사람들끼리도 공평한 결과를 내기 위해, 게임 이론에 많이 의존합니다.
  
 게임 이론이 무엇이고, 암호화 시스템에서 게임 이론이 어떻게 사용되는지가 처음에는 혼란스럽고 낯선 개념일지도 모릅니다. 그러나 여러분들은 인지하지 못하셨겠지만, 일상생활에서 이미 게임 이론의 상황을 겪고 계실 수도 있습니다. 다음 섹션에서는 어린 시절을 예시로 들어, 게임 이론의 기초 원리를 이해해 볼 것입니다. 기초 원리를 이해하시면 여러분들은 게임 이론을, 블록체인을 다루는 어디에서나 보실 수 있고, 빠르고 직관적으로 이해하실 수 있으실 겁니다. 
 
-((("fairness protocol", id="ix_01_introduction-asciidoc2", range="startofrange")))이 책에서 우리는 이 원리를 ((("fairness protocol","defined")))_공평성 프로토콜_이라고 부릅니다. 유인책과 억제책의 시스템을 사용하여, 서로 신뢰하지 않는 참가자들끼리 공평한 결과를 내도록 보장할 수 있는 프로세스를 의미합니다. 공평성 프로토콜은, 참가자들이 유인책과 억제책을 피할 수 없도록 보장하기 위해 필수입니다.
+((("fairness protocol", id="ix_01_introduction-asciidoc2", range="startofrange")))이 책에서 우리는 이 원리를 ((("fairness protocol","defined")))_공평성 프로토콜_ 이라고 부릅니다. 유인책과 억제책의 시스템을 사용하여, 서로 신뢰하지 않는 참가자들끼리 공평한 결과를 내도록 보장할 수 있는 프로세스를 의미합니다. 공평성 프로토콜은, 참가자들이 유인책과 억제책을 피할 수 없도록 보장하기 위해 필수입니다.
 
 ==== 구체적인 상황 속에서 공평성 프로토콜
 
@@ -106,7 +106,7 @@ _마스터링 라이트닝 네트워크_에 오신 것을 환영합니다!
 
 ==== 블록을 구성할 때 보안 요소들
 
-((("fairness protocol","security primitives as building blocks")))((("security primitives")))위와 같은 공평성 프로토콜이 작동하기 위해선, _보안 요소(security primitives)_라는 것이 필수적으로, 강제적으로 보장되어야 합니다. 첫번째 보안 요소는 _엄격한 시간 순서_입니다. “나누는” 행위는 반드시 “선택하는” 행위보다 먼저 일어나야 합니다. 바로 이해하기 어려우실 수 있겠습니다만, A 행위가 B 행위보다 먼저 일어나는 것을 보장할 수 없다면, 프로토콜은 붕괴되고 맙니다. 두번째 보안 요소는 _부인 방지를 약속하는 것_입니다. 각 아이들은 나눌지 선택할지, 각자의 역할을 확실히 선택해야 합니다. 또한 분할이 끝나면, 나누는 사람은 자신이 나눈 것을 확정해야 합니다. 선택한다거나, 다시 나누는 행위는 불가능하죠.
+((("fairness protocol","security primitives as building blocks")))((("security primitives")))위와 같은 공평성 프로토콜이 작동하기 위해선, _보안 요소(security primitives)_ 라는 것이 필수적으로, 강제적으로 보장되어야 합니다. 첫번째 보안 요소는 _엄격한 시간 순서_ 입니다. “나누는” 행위는 반드시 “선택하는” 행위보다 먼저 일어나야 합니다. 바로 이해하기 어려우실 수 있겠습니다만, A 행위가 B 행위보다 먼저 일어나는 것을 보장할 수 없다면, 프로토콜은 붕괴되고 맙니다. 두번째 보안 요소는 _부인 방지를 약속하는 것_ 입니다. 각 아이들은 나눌지 선택할지, 각자의 역할을 확실히 선택해야 합니다. 또한 분할이 끝나면, 나누는 사람은 자신이 나눈 것을 확정해야 합니다. 선택한다거나, 다시 나누는 행위는 불가능하죠.
 
 암호화 시스템은 공평성 프로토콜을 구성하는 다양한 방법들이 결합되어, 수많은 보안 요소들을 제공할 수 있습니다. 연속성과 확정성 외에도, 우리는 다른 여러 도구들을 이용할 수 있습니다.
 
@@ -120,89 +120,87 @@ _마스터링 라이트닝 네트워크_에 오신 것을 환영합니다!
 
 이제 여러분들은 기초 원리를 이해하셨으니, 이 원리를 비트코인, 라이트닝 네트워크, 또 다른 시스템들 어디에서나 보실 수 있을 겁니다. 특정한 예를 들어 살펴봅시다.
 
-==== Example of the Fairness Protocol
+==== 공평성 프로토콜의 예시
 
-((("fairness protocol","Proof of Work example")))((("PoW (Proof of Work) algorithm")))((("Proof of Work (PoW) algorithm")))The most prominent example of a fairness protocol is Bitcoin's consensus algorithm, Proof of Work (PoW). In Bitcoin, miners compete to verify transactions and aggregate them in blocks. To ensure that the miners do not cheat, without entrusting them with authority, Bitcoin uses a system of incentives and disincentives. Miners have to use electricity and dedicate hardware doing "work" that is embedded as a "proof" inside every block. This is achieved because of a property of hash functions where the output value is randomly distributed across the entire range of possible outputs. If miners succeed in producing a valid block fast enough, they are rewarded by earning the block reward for that block. Forcing miners to use a lot of electricity before the network considers their block means that they have an incentive to correctly validate the transactions in the block. If they cheat or make any kind of mistake, their block is rejected and the electricity they used to "prove" it is wasted. No one needs to force miners to produce valid blocks; the reward and punishment incentivize them to do so. All the protocol needs to do is ensure that only valid blocks with Proof of Work are accepted.
+((("fairness protocol","Proof of Work example")))((("PoW (Proof of Work) algorithm")))((("Proof of Work (PoW) algorithm")))가장 잘 알려진 공평성 프로토콜 예시는 비트코인의 합의(consensus) 알고리즘인 작업증명(Proof of Work, Pow)입니다. 비트코인에서 채굴자는 트랜잭션을 검증하고, 블록에 트랜잭션을 모으기 위해 경쟁합니다. 채굴자들을 신뢰하지 않고도, 그들이 사기를 치지 않는다는 것을 보장하기 위해서, 비트코인은 유인책과 억제책을 사용합니다. 모든 블록을 “증명”하는 “작업”을 하기 위해, 채굴자들은 하드웨어와 전기를 사용해야만 합니다. 채굴자들의 경쟁이 잘 이루어지는 이유는, 해시 함수의 결과값이 수많은 숫자들 중 랜덤으로 정해지는 특성때문입니다. 만약 채굴자들이 검증된 블록을 빨리 찾는다면, 그들은 해당 블록에 대해 보상을 받습니다. 네트워크에 블록을 올리기 위해 채굴자들은 많은 전기를 사용하죠. 이는 채굴자들이 블록 내 트랜잭션을 올바르게 검증할만한 동기가 충분하다는 것을 의미합니다. 만약 그들이 사기를 치거나 실수를 저질렀다면, 그들의 블록은 거절되고 그들이 “증명”하려고 사용한 전기는 낭비됩니다. 아무도 채굴자들에게 타당한 블록을 만들라고 강요하지 않았습니다. 보상과 손해가 그들이 그렇게 하도록 만들었을 뿐입니다. 프로토콜이 해야 할 일은 작업 증명으로 검증된 블록들만 받아들이는 것입니다.
 
-The fairness protocol pattern can also be found in many different aspects of the Lightning Network:
+라이트닝 네트워크의 다른 측면에서도 공평성 프로토콜의 원리를 발견할 수 있습니다.
 
-* Those who fund channels make sure that they have a refund transaction signed before they publish the funding transaction.
+* 채널에 지불하려는 사람들은 지불 트랜잭션을 네트워크에 올리기 전에, 서명된 환불 트랜잭션을 반드시 가지고 있습니다.
 
-* Whenever a channel is moved to a new state, the old state is "revoked" by ensuring that if anyone tries to broadcast it, they lose the entire balance and get punished.
+* 채널이 새 상태로 변경될 때마다, 이전 상태는 "철회"됩니다. 이로써 다른 사람이 네트워크에 이전 상태를 올리려고 한다면, 전체 잔액을 잃게 하고 처벌하도록 보장합니다.
 
-* Those who forward payments know that if they commit funds forward, they can either get a refund or get paid by the node preceding them.
+* 지불하려는 사람들은 그들이 지불하면 환불되거나 이전 노드로부터 돈을 받을 수도 있다는 사실을 알고 있습니다.
 
-Again and again, we see this pattern. Fair outcomes are not enforced by any authority. They emerge as the natural consequence of a protocol that rewards fairness and punishes cheating, a fairness protocol that harnesses self-interest by directing it toward fair outcomes.
+계속해서 우리는 이 원리를 봅니다. 공정한 결과는 권위적으로, 강제적으로 나오지 않습니다. 공정한 것은 보상하고 부정 행위를 처벌하는, 프로토콜의 자연스러운 결과입니다. 공평성 프로토콜은 개인들이 자신의 이익을 추구하는 것을 이용하여, 공정한 결과로 이어지도록 합니다.
 
-Bitcoin and the Lightning Network are both implementations of fairness protocols. So why do we need the Lightning Network? Isn't Bitcoin enough?(((range="endofrange", startref="ix_01_introduction-asciidoc2")))
+비트코인과 라이트닝 네트워크는 둘 다 공평성 프로토콜의 구현입니다. 그런데 라이트닝 네트워크는 왜 필요할까요? 비트코인만으로 충분하지 않나요?(((range="endofrange", startref="ix_01_introduction-asciidoc2")))
+
+=== 라이트닝 네트워크가 필요한 이유
+
+((("Lightning Network (generally)","motivation for", id="ix_01_introduction-asciidoc3", range="startofrange")))비트코인은 거래들을 기록하는, 세계적으로 복제된 공공 기록 장부 시스템입니다. 시스템에 참가하는 모든 컴퓨터들이 모든 거래를 보고, 검증하고, 저장합니다. 여러분들이 상상하시는 것처럼, 수많은 데이터들이 만들어지고 확장(트랜잭션을 빠르고, 많이 처리)하기 어렵습니다. 
+
+비트코인이 성장하고 거래 수요가 많아질수록, 각 블록의 거래량은 블록 크기 한계에 도달할 때까지 증가할 것입니다.
+블록이 "꽉 차면", 블록에 들어가지 못한 초과 거래들이 남아 대기하게 됩니다. 많은 사용자들은 거래를 기록할 블록의 공간을 사기 위해, 수수료를 계속 증가시킬 것입니다.
+
+네트워크가 감당하기 힘들정도로 수요가 계속 많아진다면, 네트워크에 올라가지 못하고 기다리는 거래들이 더 많아질 것입니다. 수수로 경쟁으로 각 거래의 비용도 비싸져서, 수많은 작은 규모의 거래들(예를 들어, 소액 결제)은 수요가 많아지면 비경제적으로 됩니다.
+
+이 문제를 해결하기 위해 더 많은 거래들을 위한 공간을 만들어서 블록 크기 한계를 증가시킬 수 있습니다. 블록 공간의 "공급" 증가는 거래 수수료에 대한 가격 균형을 낮출 것입니다.
+
+그러나 블록 크기가 증가하게 되면, 노드를 운영하는 사람은 더 많은 비용을 내야 하고, 블록체인에 저장하고 검증할 때 더 많은 자원을 사용해야 합니다. 블록체인은 소문이 퍼지듯이 노드 간 전달로 정보를 확산시키는 프로토콜(gossip protocols)이기 때문에, 각 노드는 네트워크에서 발생한 모든 단일 거래들을 검증하고 알고 있어야 합니다. 게다가 검증 이후 노드의 이웃들에게 각 거래들과 블록을 전달해야 해서, 네트워크 대역폭 요구사항은 제곱으로 커집니다. 따라서, 블록 크기가 커지면, 각 노도들의 대역폭과 처리, 저장공간 요구사항도 커집니다. 이렇게 거래 용량이 증가하면 노드 수와 노드를 운영하는 사람 수가 줄어들어, 시스템이 중앙 집중화되는 부작용이 발생합니다. 노드를 운영하는 사람들이 노드를 실행해도 보상을 받지 못하기 때문에, 노드를 운영하는 비용이 비싸지면, 돈이 많은 소수의 운영자들만 노드를 운영하게 됩니다.
+
+==== 블록체인 확장시키기
+
+((("blockchain","scaling", id="ix_01_introduction-asciidoc4", range="startofrange")))((("Lightning Network (generally)","scaling blockchains", id="ix_01_introduction-asciidoc5", range="startofrange")))블록 크기를 증가시키거나 블록 시간을 감소시키면, 네트워크의 중앙화에 관한 부작용이 심각해집니다. 아래에서 몇 가지 계산을 통해 수치로 보여드리겠습니다.
+
+비트코인 사용량이 늘어나서 네트워크가 초당 40,000 트랜잭션을 처리해야 한다고 가정해봅시다. 이는 Visa 네트워크의 이용량이 많을 때 거래 처리 속도와 비슷합니다.
+
+평균적으로 트랜잭션 하나 당 250바이트라고 했을 때, 모든 트랜잭션을 받기 위해 초당 10메가바이트(MBps)나 초당 80메가비트(Mbps, 1바이트 = 8비트)의 데이터 스트림이 만들어집니다.
+이때 다른 노드들에게 거래 정보를 전달하는 트래픽은 고려하지 않았습니다.
+고속 광섬유나 5G 모바일 환경에서는 10 MBps를 충분히 감당할 수 있겠지만, 이런 환경을 만족시킬 수 없는 사용자는 노드를 실행시킬 수 없습니다. 특히 인터넷이 잘 터지지 않거나, 많은 사람들이 인터넷을 이용하기 힘든 나라에서는 더욱 힘들겠죠.
+
+또, 사용자들은 대역폭에 관한 요구가 더 많아지겠지만, 단지 거래를 수신하기 위해 사용자들이 여기에 돈을 쓰는건 기대하기 힘듭니다.
+
+게다가 정보를 저장하는 공간은 매일 864기가바이트가 필요합니다. 이건 거의 1테라바이트(TB) 혹은 하드 드라이브 하나 정도의 크기입니다.
+
+초당 40,000개의 타원 곡선 디지털 서명 알고리즘(ECDSA)을 검증하는 것도 불가능합니다(다음 주소를 살펴보세요. https://bitcoin.stackexchange.com/questions/95339/how-many-bitcoin-transactions-can-be-verified-per-second[StackExchange의 관련 글]). 매우 비싼 하드웨어가 아닌 이상, 비트코인 블록체인의 _초기 블록 다운로드(Initial Block Download, IBD)_ 를 거의 불가능하게 만듭니다(비트코인에서 동기화하고 검증하는 모든 과정은 원시 블록(genesis block)에서 시작합니다.). 
+
+초당 40,000 트랜잭션이 많아 보일수도 있지만, 사람들이 몰리는 시간대에 전통적인 금융 지불 네트워크의 상황과 비슷한 수준입니다. 디바이스끼리의 결제, 소액거래, 그리고 여러 애플리케이션에서 일어난 혁신들로 이것보다 더 많은 거래가 필요할 수도 있습니다.
+
+간단히 말해서, 탈중앙화 방식을 갖고 전세계 모든 거래를 검증할 수 있는 블록체인으로 확장할 수는 없습니다.
+
+_그런데 각 노드들이 모든 단일 거래를 검증하거나 알아야 할 필요가 없다면 어떻게 될까요? 비트코인 네트워크의 보안성을 잃지 않으면서, 확장 가능한(트랜잭션을 더 많이, 빠르게 처리할 수 있는) 오프체인 거래를 할 수 있다면 어떻게 될까요?_
+
+2015년 2월, 조셉 푼(Joseph Poon)과 테드데우스 드라이자(Thaddeus Dryja)는 "비트코인 라이트닝 네트워크: 확장 가능한 오프체인 즉시 지불"이라는 백서를 통해, 비트코인 확장성 문제의 해결책을 제안했습니다."footnote:[Joseph Poon and Thaddeus Dryja. "The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments." DRAFT Version 0.5.9.2. January 14, 2016. https://lightning.network/lightning-network-paper.pdf[].]
+
+백서(초안)에서, 푼과 드라이자는 비트코인이 Visa처럼 초당 47,000 트랜잭션을 처리하려면, 8GB 블록들이 필요할 것이라고 추정했습니다.
+이 경우에 대규모 기업이나 산업을 운영하는 곳이 아닌, 개인이 노드를 실행하는 것은 완전히 불가능하게 됩니다.
+결국 소수의 사용자들만 장부 상태를 검증할 수 있는 네트워크가 될 것입니다.
+비트코인에서 탈중앙화를 유지하기 위해, 제3자를 믿지 않고 스스로 장부를 검증하는 사용자들이 필요합니다.
+노드를 운영하는 비용이 감당하기 힘들 정도로 커지면, 사용자들은 장부 상태를 확인하기 위해 제3자를 신뢰해야 할 수 밖에 없습니다. 궁극적으로 비트코인의 신뢰 모델을 깨뜨리게 되죠.
 
 
-=== Motivation for the Lightning Network
+라이트닝 네트워크는 새로운 레이어 2 네트워크를 제안합니다. 여기선 사용자들이 각 지불을 비트코인 블록체인에 트랜잭션을 올릴 필요 없이, 서로 P2P로 지불할 수 있습니다.
+사용자들은 추가적인 비트코인 트랜잭션을 만들지 않아도, 온체인 수수료를 내지 않고도, 라이트닝 네트워크에서 그들이 원하는 만큼 얼마든지 지불할 수 있습니다. 
+그들은 단지 처음에 비트코인(화폐)을 라이트닝 네트워크로 로드할 때, 혹은 이후 비트코인(화폐)을 라이트닝 네트워크에서 제거하기 위해 _지불_ 할 때 비트코인(블록체인)을 사용합니다.
+단지 초기 로딩과 마지막 지불 트랜잭션만 비트코인 노드들이 검증하고 저장하면 되므로, 더 많은 비트코인 지불들이 오프체인에서 일어나는 결과를 가져옵니다.
+노드의 부담을 줄이는 것 외에도, 라이트닝 네트워크에서 지불하면 더 쌉니다. 블록체인 수수료를 지불할 필요가 없기 때문이죠. 또 모든 사용자들이 참가하는 네트워크에 올리지 않고 영구적으로 저장되지도 않으므로, 사용자들이 더 개인적으로 이용할 수 있습니다.
 
-((("Lightning Network (generally)","motivation for", id="ix_01_introduction-asciidoc3", range="startofrange")))Bitcoin is a system that records transactions on a globally replicated public ledger. Every transaction is seen, validated, and stored by every participating computer. As you can imagine, this generates a lot of data and is difficult to scale.
+라이트닝 네트워크는 초기에 비트코인을 위해 고안되었지만, 이제는 몇 가지 기본적인 기술적 요구사항만 갖추면 어느 블록체인에서든 구현될 수 있습니다. 라이트코인(Litecoin)과 같은 다른 블록체인에서는 이미 라이트닝 네트워크를 지원합니다. 게다가 몇몇 다른 블록체인들은 확장성을 위해 비슷한 "레이어 2" 해결책을 개발하고 있습니다.(((range="endofrange", startref="ix_01_introduction-asciidoc5")))(((range="endofrange", startref="ix_01_introduction-asciidoc4"))).(((range="endofrange", startref="ix_01_introduction-asciidoc3")))
 
-As Bitcoin and the demand for transactions grew, the number of transactions in each block increased until it eventually reached the block size limit.
-Once blocks are "full," excess transactions are left to wait in a queue. Many users will increase the fees they're willing to pay to buy space for their transactions in the next block.
+=== 라이트닝 네트워크의 특징
 
-If demand continues to outpace the capacity of the network, an increasing number of users' transactions are left waiting unconfirmed. Competition for fees also increases the cost of each transaction, making many smaller-value transactions (e.g., microtransactions) completely uneconomical during periods of particularly high demand.
+((("Lightning Network (generally)","defining features")))라이트닝 네트워크는 비트코인이나 다른 블록체인 위에서 레이어 2 프로토콜로 동작하는 네트워크입니다. 라이트닝 네트워크는 빠르고, 안전하고, 개인적으로 쓸 수 있고, 신뢰하지 않아도 되고, 허가 없이(누구나 참여할 수 있는) 지불할 수 있게 합니다. 다음은 라이트닝 네트워크의 특징들입니다.
 
-To solve this problem, we could increase the block size limit to create space for more transactions. An increase in the "supply" of block space will lead to a lower price equilibrium for transaction fees.
-
-However, increasing block size shifts the cost to node operators and requires them to expend more resources to validate and store the blockchain. Because blockchains are gossip protocols, each node is required to know and validate every single transaction that occurs on the network. Furthermore, once validated, each transaction and block must be propagated to the node's "neighbors," multiplying the bandwidth requirements. As such, the greater the block size, the greater the bandwidth, processing, and storage requirements for each individual node. Increasing transaction capacity in this way has the undesirable effect of centralizing the system by reducing the number of nodes and node operators. Since node operators are not compensated for running nodes, if nodes are very expensive to run, only a few well-funded node operators will continue to run nodes.
-
-==== Scaling Blockchains
-
-((("blockchain","scaling", id="ix_01_introduction-asciidoc4", range="startofrange")))((("Lightning Network (generally)","scaling blockchains", id="ix_01_introduction-asciidoc5", range="startofrange")))The side effects of increasing the block size or decreasing the block time with respect to centralization of the network are severe, as a few calculations with the numbers show.
-
-Let us assume the usage of Bitcoin grows so that the network has to process 40,000 transactions per second, which is the approximate transaction processing level of the Visa network during peak usage.
-
-Assuming 250 bytes on average per transaction, this would result in a data stream of 10 megabytes per second (MBps) or 80 megabits per second (Mbps) just to be able to receive all the transactions.
-This does not include the traffic overhead of forwarding the transaction information to other peers.
-While 10 MBps does not seem extreme in the context of high-speed fiber optic and 5G mobile speeds, it would effectively exclude anyone who cannot meet this requirement from running a node, especially in countries where high-performance internet is not affordable or widely available.
-
-Users also have many other demands on their bandwidth and cannot be expected to expend this much only to receive transactions.
-
-Furthermore, storing this information locally would result in 864 gigabytes per day. This is roughly one terabyte of data, or the size of a hard drive.
-
-
-Verifying 40,000 Elliptic Curve Digital Signature Algorithm (ECDSA) signatures per second is also barely feasible (see https://bitcoin.stackexchange.com/questions/95339/how-many-bitcoin-transactions-can-be-verified-per-second[this article on StackExchange]), making the _initial block download (IBD)_ of the Bitcoin blockchain  (synchronizing and verifying everything starting from the genesis block) almost impossible without very expensive hardware.
-
-While 40,000 transactions per second seems like a lot, it only achieves parity with traditional financial payment networks at peak times. Innovations in machine-to-machine payments, microtransactions, and other applications are likely to push demand to many orders higher than that.
-
-Simply put: you can't scale a blockchain to validate the entire world's transactions in a decentralized way.
-
-_But what if each node wasn't required to know and validate every single transaction? What if there was a way to have scalable off-chain transactions, without losing the security of the Bitcoin network?_
-
-In February 2015, Joseph Poon and Thaddeus Dryja proposed a possible solution to the Bitcoin scalability problem, with the publication of "The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments."footnote:[Joseph Poon and Thaddeus Dryja. "The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments." DRAFT Version 0.5.9.2. January 14, 2016. https://lightning.network/lightning-network-paper.pdf[].]
-
-In the (now outdated) whitepaper, Poon and Dryja estimate that in order for Bitcoin to reach the 47,000 transactions per second processed at peak by Visa, it would require 8 GB blocks.
-This would make running a node completely untenable for anyone but large-scale enterprises and industrial-grade operations.
-The result would be a network in which only a few users could actually validate the state of the ledger.
-Bitcoin relies on users validating the ledger for themselves, without explicitly trusting third parties, in order to stay decentralized.
-Pricing users out of running nodes would force the average user to trust third parties to discover the state of the ledger, ultimately breaking the trust model of Bitcoin.
-
-The Lightning Network proposes a new network, a second layer, where users can make payments to each other peer-to-peer, without the necessity of publishing a transaction to the Bitcoin blockchain for each payment.
-Users may pay each other on the Lightning Network as many times as they want, without creating additional Bitcoin transactions or incurring on-chain fees.
-They only make use of the Bitcoin blockchain to load bitcoin onto the Lightning Network initially and to _settle_, that is, to remove bitcoin from the Lightning Network.
-The result is that many more Bitcoin payments can take place off-chain, with only the initial loading and final settlement transactions needing to be validated and stored by Bitcoin nodes.
-Aside from reducing the burden on nodes, payments on the Lightning Network are cheaper for users because they do not need to pay blockchain fees, and more private for users because they are not published to all participants of the network and furthermore are not stored permanently.
-
-While the Lightning Network was initially conceived for Bitcoin, it can be implemented on any blockchain that meets some basic technical requirements. Other blockchains, such as Litecoin, already support the Lightning Network. Additionally, several other blockchains are developing similar second layer or "layer 2" solutions to help them scale(((range="endofrange", startref="ix_01_introduction-asciidoc5")))(((range="endofrange", startref="ix_01_introduction-asciidoc4"))).(((range="endofrange", startref="ix_01_introduction-asciidoc3")))
-
-=== The Lightning Network's Defining Features
-
-((("Lightning Network (generally)","defining features")))The Lightning Network is a network that operates as a second layer protocol on top of Bitcoin and other blockchains. The Lightning Network enables fast, secure, private, trustless, and permissionless payments. Here are some of the features of the Lightning Network:
-
- * Users of the Lightning Network can route payments to each other for low cost and in real time.
- * Users who exchange value over the Lightning Network do not need to wait for block confirmations for payments.
- * Once a payment on the Lightning Network has completed, usually within a few seconds, it is final and cannot be reversed. Like a Bitcoin transaction, a payment on the Lightning Network can only be refunded by the recipient.
- * Whereas on-chain Bitcoin transactions are broadcast and verified by all nodes in the network, payments routed on the Lightning Network are transmitted between pairs of nodes and are not visible to everyone, resulting in much greater privacy.
- * Unlike transactions on the Bitcoin network, payments routed on the Lightning Network do not need to be stored permanently. Lightning thus uses fewer resources and hence is cheaper. This property also has benefits for privacy.
+ * 라이트닝 네트워크의 사용자들은 실시간으로 저렴하게 서로 지불 경로를 구성할 수 있습니다.
+ * 라이트닝 네트워크에서 가치를 교환하는 사용자들은 지불을 위해 블록이 네트워크에 올라갈 때 까지 기다릴 필요가 없습니다.
+ * 라이트닝 네트워크에서 지불이 완료되면, 보통 몇 초내로 최종 결제가 왼료되고 되돌릴 수 없습니다. 비트코인 거래처럼, 라이트닝 네트워크의 지불도 받은 사람만이 환불해줄 수 있습니다.
+ * 온체인 비트코인 트랜잭션은 모두에게 알려지고 네트워크의 모든 노드들에게 검증되는 반면, 라이트닝 네트워크에서 지불은 두 노드들끼리 전달되며 모든 사람에게 보이지는 않습니다. 프라이버시가 더 강화되겠죠.
+ * 비트코인 네트워크의 트랜잭션들과는 달리, 라이트닝 네트워크의 지불은 영구적으로 저장될 필요가 없습니다. 자원이 덜 필요하고, 그래서 더 싸죠. 이 특성 또한 프라이버시에 관해서 이점을 줍니다. 
  * The Lightning Network uses onion routing, similar to the protocol used by The Onion Router (Tor) privacy network, so that even the nodes involved in routing a payment are only directly aware of their predecessor and successor in the payment route.
- * When used on top of Bitcoin, the Lightning Network uses real bitcoin, which is always in the possession (custody) and full control of the user. Lightning is not a separate token or coin, it _is_ Bitcoin.
+ * 비트코인 위에서 사용할 때 라이트닝 네트워크는 항상 사용자가 소유하고 있고, 제어권을 가진 실제 비트코인을 사용합니다. 라이트닝은 분리된 토큰이나 코인이 아니라, 비트코인 _그 자체_ 입니다.
 
-
-[[user-stories]]
+[[라이트닝 네트워크 사용자들의 이야기]]
 === Lightning Network Use Cases, Users, and Their Stories
 
 ((("Lightning Network (generally)","use cases and users")))To better understand how the Lightning Network actually works, and why people use it, we'll be following a number of users and their stories.
@@ -221,9 +219,9 @@ Chan is a Chinese entrepreneur who sells information services related to the Lig
 Gamer::
 Dina is a teenage gamer from Russia. She plays many different computer games, but her favorite ones are those that have an "in-game economy" based on real money. As she plays games, she also earns money by acquiring and selling virtual in-game items. The Lightning Network allows her to transact in small amounts for in-game items as well as earn small amounts for completing quests.
 
-=== Conclusion
+=== 결론
 
-In this chapter, we talked about the fundamental concept that underlies both Bitcoin and the Lightning Network: the fairness protocol.
+이번 챕터에서 비트코인과 라이트닝 네트워크의 기초가 되는 근본적인 개념에 대해 이야기했습니다. 바로 공평성 프로토콜이죠.
 
 We looked at the history of the Lightning Network and the motivations behind second layer scaling solutions for Bitcoin and other blockchain-based networks.
 
