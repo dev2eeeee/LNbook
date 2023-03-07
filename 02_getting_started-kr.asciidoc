@@ -19,27 +19,24 @@
 사용자들은 자신만의 비트코인과 라이트닝 노드 모두를 운영하여 최고 수준의 제어를 할 수도 있습니다. 혹은, ((("simplified payment verification (SPV)")))((("SPV (simplified payment verification)")))라이트닝 노드들은 비트코인 블록체인과 상호작용하기 위해 SPV(Simplified Payment Verification)라고 불리는, 가벼운 비트코인 클라이언트를 사용할 수 있습니다.
 
 [[ln_explorer]]
-=== Lightning Explorers
+=== 라이트닝 익스플로러
 
-((("Lightning explorers")))LN explorers are useful tools to show the statistics of nodes, channels, and network capacity.
+((("Lightning explorers")))LN 익스플로러는 노드, 채널들, 네트워크 용량의 통계를 보여주는 유용한 툴입니다.
 
-Following is an inexhaustive list:
+다음은 포괄적인 목록입니다.
 
 * https://1ml.com[1ML Lightning explorer] 
-* https://explorer.acinq.co[ACINQ's Lightning explorer], with fancy visualization 
-* https://amboss.space[Amboss Space Lightning explorer], with community metrics and intuitive pass:[<span class="keep-together">visualizations</span>]
-* https://ln.bigsun.xyz[Fiatjaf's Lightning explorer] with many diagrams
+* https://explorer.acinq.co[ACINQ's Lightning explorer], 디자인이 팬시함.
+* https://amboss.space[Amboss Space Lightning explorer], 커뮤니티와 직관적인 pass:[<span class="keep-together">디자인</span>]
+* https://ln.bigsun.xyz[Fiatjaf's Lightning explorer], 다이어그램이 많음.
 *  https://hashxp.org/lightning/node[hashXP Lightning explorer]
 
 [TIP]
 ====
-Note that when using Lightning explorers, just like with other block explorers, privacy can be a concern.
-If users are careless, the website may track their IP addresses and collect their behavior records (for example, the nodes users are interested in).
+다른 블록체인처럼 라이트닝 익스플로러를 사용하실 때, 프라이버시가 중요하다는 점을 아셔야 합니다. 사용자가 부주의할 경우, 웹사이트는 여러분의 IP를 추적하여, 여러분의 동작을 기록할 수 있습니다(예를 들어, 사용자가 관심을 갖는 노드들).
 
-Also, it should be noted that because there is no global consensus of the current Lightning graph or the current state of any existing channel policy, users should never rely on Lightning explorers to retrieve the most current information.
-Furthermore, as users open, close, and update channels, the graph will change and individual Lightning explorers may not be up to date.
-Use Lightning explorers to visualize the network or gather information, but not as an authoritative source of what is happening on the Lightning Network.
-To have an authoritative view of the Lightning Network, run your own Lightning node that will build a channel graph and collect various statistics, which you can view with a web-based interface.
+또, 현존하는 라이트닝 그래프나 채널 정책의 상태는 아직 세계적으로 합의된 바가 없습니다. 그래서 사용자들은 정보를 얻으려고 라이트닝 익스플로러에 절대 많이 의존하면 안됩니다. 
+게다가, 사용자들이 채널을 열고, 닫고, 업데이트 할 때마다, 그래프가 바뀌거나 혹은 각 라이트닝 익스플로러는 최신 업데이트가 안될 수도 있습니다. 네트워크 정보를 시각화할 때만 라이트닝 익스플로러를 사용하세요. 라이트닝 네트워크에서 무슨 일이 일어났는지를 권위 있는 출처로 쓰지 마십시오. 라이트닝 네트워크를 제대로 보려면, 여러분이 직접 채널 그래프와 다양한 통계를 모아 웹 기반 인터페이스로 볼 수 있는 라이트닝 노드를 돌리십시오.
 ====
 
 === Lightning Wallets
